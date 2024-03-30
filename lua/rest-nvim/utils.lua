@@ -150,4 +150,29 @@ function utils.highlight(bufnr, start, end_, ns)
   end, timeout)
 end
 
+function utils.split_str(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t={}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
+function utils.url_encode(str)
+  str = string.gsub(str, "([^%w ])",
+    function (c) return string.format("%%%02X", string.byte(c)) end)
+  return string.gsub(str, " ", "+")
+end
+
+function utils.table_to_query_string(t)
+  local params = {}
+  for k, v in pairs(t) do
+    params[#params + 1] = utils.url_encode(k) .. "=" .. utils.url_encode(v)
+  end
+  return table.concat(params, "&")
+end
+
 return utils

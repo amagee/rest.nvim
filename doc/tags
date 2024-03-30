@@ -55,7 +55,6 @@ rest-nvim-features	rest-nvim.txt	/*rest-nvim-features*
 rest-nvim-intro	rest-nvim.txt	/*rest-nvim-intro*
 rest-nvim-license	rest-nvim.txt	/*rest-nvim-license*
 rest-nvim-quick-start	rest-nvim.txt	/*rest-nvim-quick-start*
-rest-nvim-script-variables	rest-nvim.txt	/*rest-nvim-script-variables*
 rest-nvim-usage	rest-nvim.txt	/*rest-nvim-usage*
 rest-nvim-usage-commands	rest-nvim.txt	/*rest-nvim-usage-commands*
 rest-nvim-usage-dynamic-variables	rest-nvim.txt	/*rest-nvim-usage-dynamic-variables*
@@ -63,6 +62,7 @@ rest-nvim-usage-environment-variables	rest-nvim.txt	/*rest-nvim-usage-environmen
 rest-nvim-usage-external-files	rest-nvim.txt	/*rest-nvim-usage-external-files*
 rest-nvim-usage-hooks	rest-nvim.txt	/*rest-nvim-usage-hooks*
 rest-nvim-usage-requests	rest-nvim.txt	/*rest-nvim-usage-requests*
+rest-nvim-usage-script-variables	rest-nvim.txt	/*rest-nvim-usage-script-variables*
 rest-nvim.api	rest-nvim-api.txt	/*rest-nvim.api*
 rest-nvim.client.curl	rest-nvim-curl.txt	/*rest-nvim.client.curl*
 rest-nvim.commands	rest-nvim-commands.txt	/*rest-nvim.commands*

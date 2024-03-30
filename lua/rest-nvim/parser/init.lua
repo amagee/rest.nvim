@@ -11,6 +11,7 @@
 local parser = {}
 
 local dynamic_vars = require("rest-nvim.parser.dynamic_vars")
+local utils = require("rest-nvim.utils")
 
 ---@alias NodesList { [string]: TSNode }[]
 ---@alias Variables { [string]: { type_: string, value: string|number|boolean } }[]
@@ -223,6 +224,22 @@ function parser.parse_request(children_nodes, variables)
       request.http_version = http_version:gsub("HTTP/", "")
     elseif node_type == "request" then
       request = parser.parse_request(traverse_request(node), variables)
+    elseif node_type == "params_body" then
+      local text = get_node_text(node, 0)
+
+      local lines = utils.split_str(text, "\n")
+      table.remove(lines, 1)
+      table.remove(lines, #lines)
+
+      local params = {}
+      for _, line in ipairs(lines) do
+        local parts = utils.split_str(line, ": ")
+        local key = parts[1]
+        local value = parts[2]
+        params[key] = value
+      end
+
+      request.url = request.url .. "?" .. utils.table_to_query_string(params)
     end
   end
 
